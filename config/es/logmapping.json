@@ -1,0 +1,93 @@
+{
+    "mappings" : {
+      "fluentd" : {
+        "_all":{
+          "enabled": false
+        },
+        "properties" : {
+          "app_name" : {
+            "type" : "string",
+            "index" : "not_analyzed",
+            "copy_to" : "query_field"
+          },
+          "business_code" : {
+            "type" : "string",
+            "index" : "not_analyzed"
+          },
+          "call_method" : {
+            "type" : "string",
+            "index" : "not_analyzed",
+            "copy_to" : "query_field"
+          },
+          "client_ip" : {
+            "type" : "string",
+            "index" : "not_analyzed"
+          },
+          "client_port" : {
+            "type" : "string",
+            "index" : "not_analyzed"
+          },
+          "communication_type" : {
+            "type" : "string",
+            "index" : "not_analyzed"
+          },
+          "elapsed_time" : {
+            "type" : "long"
+          },
+          "log_type" : {
+            "type" : "string",
+            "index" : "not_analyzed",
+            "copy_to" : "query_field"
+          },
+          "method" : {
+            "type" : "string",
+            "index" : "not_analyzed",
+            "copy_to": "query_field"
+          },
+          "query_entity" : {
+            "type" : "string",
+            "index" : "not_analyzed"
+          },
+          "req_length" : {
+            "type" : "long"
+          },
+          "request_time" : {
+            "type" : "date",
+            "format": "yyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis"
+          },
+          "resp_length" : {
+            "type" : "long"
+          },
+          "return content" : {
+            "type" : "string",
+            "index" : "no"
+          },
+          "server_ip" : {
+            "type" : "string",
+            "index" : "not_analyzed"
+          },
+          "server_port" : {
+            "type" : "string",
+            "index" : "not_analyzed"
+          },
+          "status_code" : {
+            "type" : "string",
+            "index" : "not_analyzed"
+          },
+          "url" : {
+            "type" : "string",
+            "index" : "not_analyzed"
+          },
+          "query_field" : {
+            "type" : "string"
+          }
+        }
+      }
+    },
+    "settings":{
+      "index.number_of_shards" : "3",
+      "index.number_of_replicas" : "0",
+      "index.query.default_field":"query_field"
+    }
+}
+

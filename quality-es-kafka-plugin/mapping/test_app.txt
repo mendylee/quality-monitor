@@ -1,0 +1,4 @@
+\/Account\/\d+	GET	GetUserInfo
+\/Account\/\d+	POST	AddUserInfo
+\/Account\/\d+	PUT	UpdateUserInfo
+\/Account\/\d+	DELETE	DeleteUserInfo

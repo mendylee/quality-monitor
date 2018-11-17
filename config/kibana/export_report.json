@@ -1,0 +1,338 @@
+[
+  {
+    "_id": "服务器上行流量对比曲线",
+    "_type": "visualization",
+    "_source": {
+      "title": "服务器上行流量对比曲线",
+      "visState": "{\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"sum\",\"schema\":\"metric\",\"params\":{\"field\":\"req_length\"}},{\"id\":\"2\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"request_time\",\"interval\":\"auto\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}},{\"id\":\"3\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"server_ip\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"quality_log\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "服务器访问量对比曲线",
+    "_type": "visualization",
+    "_source": {
+      "title": "服务器访问量对比曲线",
+      "visState": "{\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"request_time\",\"interval\":\"auto\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}},{\"id\":\"3\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"server_ip\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"quality_log\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "应用服务器负载统计饼图",
+    "_type": "visualization",
+    "_source": {
+      "title": "应用服务器负载统计饼图",
+      "visState": "{\"type\":\"pie\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"isDonut\":false,\"spyPerPage\":10},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"split\",\"params\":{\"field\":\"app_name\",\"size\":30,\"order\":\"desc\",\"orderBy\":\"1\",\"row\":true}},{\"id\":\"3\",\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"server_ip\",\"size\":10,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{\"spy\":{\"mode\":{\"name\":null,\"fill\":false}}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"quality_log\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "服务器应用访问量统计",
+    "_type": "visualization",
+    "_source": {
+      "title": "服务器访问量统计曲线图",
+      "visState": "{\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"4\",\"type\":\"terms\",\"schema\":\"split\",\"params\":{\"field\":\"server_ip\",\"size\":20,\"order\":\"asc\",\"orderBy\":\"_term\",\"row\":true}},{\"id\":\"2\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"request_time\",\"interval\":\"auto\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}},{\"id\":\"3\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"app_name\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"quality_log\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "响应时间范围统计",
+    "_type": "visualization",
+    "_source": {
+      "title": "应用响应时间范围统计数据表(单位：毫秒)",
+      "visState": "{\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"3\",\"type\":\"terms\",\"schema\":\"split\",\"params\":{\"field\":\"app_name\",\"size\":30,\"order\":\"desc\",\"orderBy\":\"1\",\"row\":true}},{\"id\":\"2\",\"type\":\"range\",\"schema\":\"bucket\",\"params\":{\"field\":\"elapsed_time\",\"ranges\":[{\"from\":0,\"to\":null},{\"from\":0,\"to\":10},{\"from\":10,\"to\":30},{\"from\":30,\"to\":200},{\"from\":200,\"to\":500},{\"from\":500,\"to\":1000},{\"from\":1000}]}},{\"id\":\"4\",\"type\":\"std_dev\",\"schema\":\"metric\",\"params\":{\"field\":\"elapsed_time\"}},{\"id\":\"5\",\"type\":\"max\",\"schema\":\"metric\",\"params\":{\"field\":\"elapsed_time\"}},{\"id\":\"6\",\"type\":\"min\",\"schema\":\"metric\",\"params\":{\"field\":\"elapsed_time\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "按范围统计每个应用的请求时间分布情况",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"quality_log\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "应用请求响应时间占比表",
+    "_type": "visualization",
+    "_source": {
+      "title": "应用请求响应时间占比表(单位：毫秒)",
+      "visState": "{\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false},\"aggs\":[{\"id\":\"3\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"4\",\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"elapsed_time\"}},{\"id\":\"1\",\"type\":\"percentile_ranks\",\"schema\":\"metric\",\"params\":{\"field\":\"elapsed_time\",\"values\":[10,50,100,200]}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"app_name\",\"size\":30,\"order\":\"desc\",\"orderBy\":\"_term\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"quality_log\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "服务器应用下行流量统计",
+    "_type": "visualization",
+    "_source": {
+      "title": "服务器应用下行流量统计",
+      "visState": "{\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"sum\",\"schema\":\"metric\",\"params\":{\"field\":\"resp_length\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"split\",\"params\":{\"field\":\"server_ip\",\"size\":20,\"order\":\"asc\",\"orderBy\":\"_term\",\"row\":true}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"request_time\",\"interval\":\"auto\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}},{\"id\":\"4\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"app_name\",\"size\":30,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"quality_log\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "服务器下行流量对比曲线",
+    "_type": "visualization",
+    "_source": {
+      "title": "服务器下行流量对比曲线",
+      "visState": "{\"aggs\":[{\"id\":\"1\",\"params\":{\"field\":\"resp_length\"},\"schema\":\"metric\",\"type\":\"sum\"},{\"id\":\"2\",\"params\":{\"customInterval\":\"2h\",\"extended_bounds\":{},\"field\":\"request_time\",\"interval\":\"auto\",\"min_doc_count\":1},\"schema\":\"segment\",\"type\":\"date_histogram\"},{\"id\":\"3\",\"params\":{\"field\":\"server_ip\",\"order\":\"desc\",\"orderBy\":\"1\",\"size\":30},\"schema\":\"group\",\"type\":\"terms\"}],\"listeners\":{},\"params\":{\"addLegend\":true,\"addTimeMarker\":false,\"addTooltip\":true,\"defaultYExtents\":false,\"drawLinesBetweenPoints\":true,\"interpolate\":\"linear\",\"radiusRatio\":9,\"scale\":\"linear\",\"setYExtents\":false,\"shareYAxis\":true,\"showCircles\":true,\"smoothLines\":false,\"times\":[],\"yAxis\":{}},\"type\":\"line\"}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"quality_log\",\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "应用请求时间",
+    "_type": "visualization",
+    "_source": {
+      "title": "应用请求时间曲线图（单位：毫秒）",
+      "visState": "{\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{},\"spyPerPage\":10},\"aggs\":[{\"id\":\"1\",\"type\":\"max\",\"schema\":\"metric\",\"params\":{\"field\":\"elapsed_time\"}},{\"id\":\"2\",\"type\":\"min\",\"schema\":\"metric\",\"params\":{\"field\":\"elapsed_time\"}},{\"id\":\"3\",\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"elapsed_time\"}},{\"id\":\"5\",\"type\":\"terms\",\"schema\":\"split\",\"params\":{\"field\":\"app_name\",\"size\":20,\"orderAgg\":{\"id\":\"5-orderAgg\",\"type\":\"count\",\"schema\":{\"group\":\"none\",\"name\":\"orderAgg\",\"title\":\"Order Agg\",\"aggFilter\":[\"!percentiles\",\"!median\",\"!std_dev\"],\"min\":0,\"max\":null,\"editor\":false,\"params\":[]},\"params\":{}},\"order\":\"desc\",\"orderBy\":\"custom\",\"row\":true}},{\"id\":\"4\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"request_time\",\"interval\":\"s\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "uiStateJSON": "{\n  \"spy\": {\n    \"mode\": {\n      \"name\": null,\n      \"fill\": false\n    }\n  }\n}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"quality_log\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "应用服务器负载",
+    "_type": "visualization",
+    "_source": {
+      "title": "应用服务器负载统计饼图",
+      "visState": "{\"type\":\"pie\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"isDonut\":false,\"spyPerPage\":10},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"split\",\"params\":{\"field\":\"app_name\",\"size\":10,\"order\":\"desc\",\"orderBy\":\"1\",\"row\":true}},{\"id\":\"3\",\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"server_ip\",\"size\":10,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{\n  \"spy\": {\n    \"mode\": {\n      \"name\": null,\n      \"fill\": false\n    }\n  }\n}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"quality_log\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "HTTP请求方法分类统计",
+    "_type": "visualization",
+    "_source": {
+      "title": "HTTP请求方法分类统计柱状图",
+      "visState": "{\"type\":\"histogram\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"scale\":\"linear\",\"mode\":\"grouped\",\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"4\",\"type\":\"terms\",\"schema\":\"split\",\"params\":{\"field\":\"app_name\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\",\"row\":true}},{\"id\":\"2\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"request_time\",\"interval\":\"auto\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}},{\"id\":\"3\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"method\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"quality_log\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "应用访问量统计",
+    "_type": "visualization",
+    "_source": {
+      "title": "应用访问量曲线图",
+      "visState": "{\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{},\"spyPerPage\":10},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"request_time\",\"interval\":\"s\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}},{\"id\":\"3\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"app_name\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{\n  \"spy\": {\n    \"mode\": {\n      \"name\": \"table\",\n      \"fill\": false\n    }\n  }\n}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"quality_log\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "最慢响应请求TOP10",
+    "_type": "visualization",
+    "_source": {
+      "title": "最慢响应请求TOP10(单位：毫秒)",
+      "visState": "{\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false},\"aggs\":[{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"split\",\"params\":{\"field\":\"app_name\",\"size\":10,\"order\":\"desc\",\"orderBy\":\"_term\",\"row\":true}},{\"id\":\"5\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"elapsed_time\",\"size\":10,\"orderAgg\":{\"id\":\"5-orderAgg\",\"type\":\"max\",\"schema\":{\"group\":\"none\",\"name\":\"orderAgg\",\"title\":\"Order Agg\",\"aggFilter\":[\"!percentiles\",\"!median\",\"!std_dev\"],\"min\":0,\"max\":null,\"editor\":false,\"params\":[]},\"params\":{\"field\":\"elapsed_time\"}},\"order\":\"desc\",\"orderBy\":\"custom\"}},{\"id\":\"4\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"url\",\"size\":10,\"order\":\"desc\",\"orderBy\":\"_term\"}},{\"id\":\"3\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"method\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"_term\"}},{\"id\":\"6\",\"type\":\"max\",\"schema\":\"metric\",\"params\":{\"field\":\"request_time\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"quality_log\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "应用返回状态码统计",
+    "_type": "visualization",
+    "_source": {
+      "title": "应用返回状态码统计饼图",
+      "visState": "{\"type\":\"pie\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"isDonut\":false,\"spyPerPage\":10},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"3\",\"type\":\"terms\",\"schema\":\"split\",\"params\":{\"field\":\"app_name\",\"size\":10,\"order\":\"desc\",\"orderBy\":\"_term\",\"row\":true}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"status_code\",\"size\":20,\"order\":\"asc\",\"orderBy\":\"_term\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{\n  \"spy\": {\n    \"mode\": {\n      \"name\": null,\n      \"fill\": false\n    }\n  }\n}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"quality_log\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "超过200ms请求分段占比图",
+    "_type": "visualization",
+    "_source": {
+      "title": "超过200ms请求分段占比图",
+      "visState": "{\"type\":\"histogram\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"scale\":\"linear\",\"mode\":\"stacked\",\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"3\",\"type\":\"terms\",\"schema\":\"split\",\"params\":{\"field\":\"app_name\",\"size\":30,\"order\":\"desc\",\"orderBy\":\"1\",\"row\":true}},{\"id\":\"2\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"request_time\",\"interval\":\"auto\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}},{\"id\":\"4\",\"type\":\"range\",\"schema\":\"group\",\"params\":{\"field\":\"elapsed_time\",\"ranges\":[{\"from\":200,\"to\":500},{\"from\":500,\"to\":1000},{\"from\":1000}]}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"quality_log\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "访问量面积图（返回类别）",
+    "_type": "visualization",
+    "_source": {
+      "title": "访问量面积图（返回类别）",
+      "visState": "{\"type\":\"area\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"smoothLines\":false,\"scale\":\"linear\",\"interpolate\":\"linear\",\"mode\":\"stacked\",\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"split\",\"params\":{\"field\":\"app_name\",\"size\":10,\"order\":\"desc\",\"orderBy\":\"1\",\"row\":true}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"request_time\",\"interval\":\"auto\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}},{\"id\":\"4\",\"type\":\"filters\",\"schema\":\"group\",\"params\":{\"filters\":[{\"input\":{\"query\":{\"prefix\":{\"status_code\":\"2\"}}},\"label\":\"正常请求\"},{\"input\":{\"query\":{\"prefix\":{\"status_code\":\"3\"}}},\"label\":\"3XX请求\"},{\"input\":{\"query\":{\"prefix\":{\"status_code\":\"4\"}}},\"label\":\"4XX请求\"},{\"input\":{\"query\":{\"prefix\":{\"status_code\":\"5\"}}},\"label\":\"5XX请求\"}]}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"quality_log\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "接口方法访问统计数据表",
+    "_type": "visualization",
+    "_source": {
+      "title": "接口方法访问统计数据表",
+      "visState": "{\"type\":\"table\",\"params\":{\"perPage\":15,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"split\",\"params\":{\"field\":\"app_name\",\"size\":30,\"order\":\"desc\",\"orderBy\":\"1\",\"row\":true}},{\"id\":\"3\",\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"elapsed_time\"}},{\"id\":\"4\",\"type\":\"max\",\"schema\":\"metric\",\"params\":{\"field\":\"elapsed_time\"}},{\"id\":\"5\",\"type\":\"min\",\"schema\":\"metric\",\"params\":{\"field\":\"elapsed_time\"}},{\"id\":\"6\",\"type\":\"sum\",\"schema\":\"metric\",\"params\":{\"field\":\"req_length\"}},{\"id\":\"7\",\"type\":\"sum\",\"schema\":\"metric\",\"params\":{\"field\":\"resp_length\"}},{\"id\":\"8\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"call_method\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"10\",\"type\":\"percentile_ranks\",\"schema\":\"metric\",\"params\":{\"field\":\"elapsed_time\",\"values\":[100]}},{\"id\":\"9\",\"type\":\"percentile_ranks\",\"schema\":\"metric\",\"params\":{\"field\":\"elapsed_time\",\"values\":[50]}},{\"id\":\"11\",\"type\":\"percentile_ranks\",\"schema\":\"metric\",\"params\":{\"field\":\"elapsed_time\",\"values\":[200]}},{\"id\":\"12\",\"type\":\"percentile_ranks\",\"schema\":\"metric\",\"params\":{\"field\":\"elapsed_time\",\"values\":[500]}},{\"id\":\"13\",\"type\":\"percentile_ranks\",\"schema\":\"metric\",\"params\":{\"field\":\"elapsed_time\",\"values\":[1000]}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"quality_log\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "account-api业务响应码饼图",
+    "_type": "visualization",
+    "_source": {
+      "title": "account-api业务响应码饼图",
+      "visState": "{\"type\":\"pie\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"isDonut\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"filters\",\"schema\":\"segment\",\"params\":{\"filters\":[{\"input\":{\"query\":{\"prefix\":{\"business_code\":\"21020000\"}}},\"label\":\"操作成功\"},{\"input\":{\"query\":{\"prefix\":{\"business_code\":\"21020101\"}}},\"label\":\"登录-成功\"},{\"input\":{\"query\":{\"prefix\":{\"business_code\":\"21020201\"}}},\"label\":\"注册-成功\"},{\"input\":{\"query\":{\"prefix\":{\"business_code\":\"21020301\"}}},\"label\":\"用户数据修改-成功\"},{\"input\":{\"query\":{\"prefix\":{\"business_code\":\"21020401\"}}},\"label\":\"密码修改-成功\"},{\"input\":{\"query\":{\"prefix\":{\"business_code\":\"21020501\"}}},\"label\":\"用户状态更新-成功\"},{\"input\":{\"query\":{\"prefix\":{\"business_code\":\"21020601\"}}},\"label\":\"注册-账号可用\"},{\"input\":{\"query\":{\"prefix\":{\"business_code\":\"21020701\"}}},\"label\":\"账号升级-成功\"},{\"input\":{\"query\":{\"prefix\":{\"business_code\":\"21020602\"}}},\"label\":\"注册-账号不可用\"},{\"input\":{\"query\":{\"prefix\":{\"business_code\":\"41020202\"}}},\"label\":\"注册-账号已被注册\"},{\"input\":{\"query\":{\"prefix\":{\"business_code\":\"41020204\"}}},\"label\":\"注册-无效的验证码\"},{\"input\":{\"query\":{\"prefix\":{\"business_code\":\"41020205\"}}},\"label\":\"注册-无效的账号\"},{\"input\":{\"query\":{\"prefix\":{\"business_code\":\"41020603\"}}},\"label\":\"账号检测-无效的手机账号\"},{\"input\":{\"query\":{\"prefix\":{\"business_code\":\"41020703\"}}},\"label\":\"账号升级-手机被使用了\"},{\"input\":{\"query\":{\"prefix\":{\"business_code\":\"41020102\"}}},\"label\":\"登录-无效的账号或密码\"},{\"input\":{\"query\":{\"prefix\":{\"business_code\":\"41020004\"}}},\"label\":\"缺少参数\"},{\"input\":{\"query\":{\"prefix\":{\"business_code\":\"41020005\"}}},\"label\":\"无效的请求地址-找不到请求的页面\"},{\"input\":{\"query\":{\"prefix\":{\"business_code\":\"41020006\"}}},\"label\":\"找不到请求的资源\"},{\"input\":{\"query\":{\"prefix\":{\"business_code\":\"41020007\"}}},\"label\":\"参数无效\"},{\"input\":{\"query\":{\"prefix\":{\"business_code\":\"51020000\"}}},\"label\":\"服务端内部错误\"},{\"input\":{\"query\":{\"prefix\":{\"business_code\":\"51020203\"}}},\"label\":\"注册-注册失败\"},{\"input\":{\"query\":{\"prefix\":{\"business_code\":\"51020402\"}}},\"label\":\"密码修改-更新失败\"},{\"input\":{\"query\":{\"prefix\":{\"business_code\":\"51020502\"}}},\"label\":\"用户状态列新-失败\"},{\"input\":{\"query\":{\"prefix\":{\"business_code\":\"51020702\"}}},\"label\":\"账号升级-失败\"}]}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"quality_log\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "uiac业务响应码饼图",
+    "_type": "visualization",
+    "_source": {
+      "title": "uiac业务响应码饼图",
+      "visState": "{\"type\":\"pie\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"isDonut\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"filters\",\"schema\":\"segment\",\"params\":{\"filters\":[{\"input\":{\"query\":{\"prefix\":{\"business_code\":\"10000002\"}}},\"label\":\"token失效\"},{\"input\":{\"query\":{\"prefix\":{\"business_code\":\"1002\"}}},\"label\":\"用户信息管理业务逻辑异常\"},{\"input\":{\"query\":{\"prefix\":{\"business_code\":\"null\"}}},\"label\":\"正常请求\"},{\"input\":{\"query\":{\"prefix\":{\"business_code\":\"10000005\"}}},\"label\":\"用户不存在\"},{\"input\":{\"query\":{\"prefix\":{\"business_code\":\"10000020\"}}},\"label\":\"内部错误\"},{\"input\":{\"query\":{\"prefix\":{\"business_code\":\"1001\"}}},\"label\":\"授权模块业务逻辑异常\"}]}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"quality_log\",\"query\":{\"query_string\":{\"query\":\"app_name:uiac\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "产品api业务码响应饼图",
+    "_type": "visualization",
+    "_source": {
+      "title": "产品api业务码响应饼图",
+      "visState": "{\"type\":\"pie\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"isDonut\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"filters\",\"schema\":\"segment\",\"params\":{\"filters\":[{\"input\":{\"query\":{\"prefix\":{\"business_code\":\"21010000\"}}},\"label\":\"操作成功\"},{\"input\":{\"query\":{\"prefix\":{\"business_code\":\"41010100\"}}},\"label\":\"缺少参数\"},{\"input\":{\"query\":{\"prefix\":{\"business_code\":\"41010101\"}}},\"label\":\"无效的请求路径\"},{\"input\":{\"query\":{\"prefix\":{\"business_code\":\"41010102\"}}},\"label\":\"找不到请求的资源\"},{\"input\":{\"query\":{\"prefix\":{\"business_code\":\"41010103\"}}},\"label\":\"参数类型不匹配\"},{\"input\":{\"query\":{\"prefix\":{\"business_code\":\"51010000\"}}},\"label\":\"服务端内部错误\"},{\"input\":{\"query\":{\"prefix\":{\"business_code\":\"51010101\"}}},\"label\":\"找不到产品\"},{\"input\":{\"query\":{\"prefix\":{\"business_code\":\"51010102\"}}},\"label\":\"产品没在可豁免范围内\"},{\"input\":{\"query\":{\"prefix\":{\"business_code\":\"51010104\"}}},\"label\":\"豁免险必须且只能豁免一款可豁免范围内的主险并且是寿险的产品\"},{\"input\":{\"query\":{\"prefix\":{\"business_code\":\"51010105\"}}},\"label\":\"豁免险必须且只能豁免一款可豁免范围内的附险并且是重疾的产品\"},{\"input\":{\"query\":{\"prefix\":{\"business_code\":\"51010106\"}}},\"label\":\"豁免险豁免的寿险保额必须大于重疾的保额\"},{\"input\":{\"query\":{\"prefix\":{\"business_code\":\"51010107\"}}},\"label\":\"费率不存在\"},{\"input\":{\"query\":{\"prefix\":{\"business_code\":\"51010108\"}}},\"label\":\"产品不支持费率测试保额\"}]}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"quality_log\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "location_service业务响应码饼图",
+    "_type": "visualization",
+    "_source": {
+      "title": "location_service业务响应码饼图",
+      "visState": "{\"type\":\"pie\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"isDonut\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"filters\",\"schema\":\"segment\",\"params\":{\"filters\":[{\"input\":{\"query\":{\"prefix\":{\"business_code\":\"10000001\"}}},\"label\":\"内部错误\"},{\"input\":{\"query\":{\"prefix\":{\"business_code\":\"10000002\"}}},\"label\":\"参数不合法\"},{\"input\":{\"query\":{\"prefix\":{\"business_code\":\"null\"}}},\"label\":\"正常请求\"},{\"input\":{\"query\":{\"prefix\":{\"business_code\":\"10000003\"}}},\"label\":\"找不到资源\"},{\"input\":{\"query\":{\"prefix\":{\"business_code\":\"10000004\"}}},\"label\":\"变更为省份\"},{\"input\":{\"query\":{\"prefix\":{\"business_code\":\"10000005\"}}},\"label\":\"变更为城市\"},{\"input\":{\"query\":{\"prefix\":{\"business_code\":\"10000006\"}}},\"label\":\"变更为县（区）\"}]}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"quality_log\",\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"app_name:location_service\"}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "ugs业务响应码饼图",
+    "_type": "visualization",
+    "_source": {
+      "title": "ugs业务响应码饼图",
+      "visState": "{\"type\":\"pie\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"isDonut\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"filters\",\"schema\":\"segment\",\"params\":{\"filters\":[{\"input\":{\"query\":{\"prefix\":{\"business_code\":\"11000001\"}}},\"label\":\"用户ID无效\"},{\"input\":{\"query\":{\"prefix\":{\"business_code\":\"11000002\"}}},\"label\":\"无效的请求参数（不存在的规则代码）\"},{\"input\":{\"query\":{\"prefix\":{\"business_code\":\"null\"}}},\"label\":\"正常请求\"},{\"input\":{\"query\":{\"prefix\":{\"business_code\":\"11000003\"}}},\"label\":\"HTTP请求方法无效\"},{\"input\":{\"query\":{\"prefix\":{\"business_code\":\"11000004\"}}},\"label\":\"内部服务异常\"}]}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"quality_log\",\"query\":{\"query_string\":{\"query\":\"app_name:ugs\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "业务码统计-未过滤",
+    "_type": "visualization",
+    "_source": {
+      "title": "业务码统计-未过滤",
+      "visState": "{\"type\":\"pie\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"isDonut\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"split\",\"params\":{\"field\":\"app_name\",\"size\":10,\"order\":\"desc\",\"orderBy\":\"1\",\"row\":true}},{\"id\":\"3\",\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"business_code\",\"size\":30,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"quality_log\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "根据请求状态区分的业务响应码",
+    "_type": "visualization",
+    "_source": {
+      "title": "根据请求状态区分的业务响应码",
+      "visState": "{\n  \"type\": \"pie\",\n  \"params\": {\n    \"shareYAxis\": true,\n    \"addTooltip\": true,\n    \"addLegend\": true,\n    \"isDonut\": false,\n    \"spyPerPage\": 10\n  },\n  \"aggs\": [\n    {\n      \"id\": \"1\",\n      \"type\": \"count\",\n      \"schema\": \"metric\",\n      \"params\": {}\n    },\n    {\n      \"id\": \"2\",\n      \"type\": \"filters\",\n      \"schema\": \"segment\",\n      \"params\": {\n        \"filters\": [\n          {\n            \"input\": {\n              \"query\": {\n                \"prefix\": {\n                  \"business_code\": \"200\"\n                }\n              }\n            },\n            \"label\": \"正常请求\"\n          },\n          {\n            \"input\": {\n              \"query\": {\n                \"prefix\": {\n                  \"business_code\": \"400\"\n                }\n              }\n            },\n            \"label\": \"用户非法请求\"\n          },\n          {\n            \"input\": {\n              \"query\": {\n                \"prefix\": {\n                  \"business_code\": \"500\"\n                }\n              }\n            },\n            \"label\": \"服务器内部错误\"\n          }\n        ]\n      }\n    }\n  ],\n  \"listeners\": {}\n}",
+      "uiStateJSON": "{\n  \"spy\": {\n    \"mode\": {\n      \"name\": \"table\",\n      \"fill\": false\n    }\n  }\n}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\n  \"index\": \"quality_log\",\n  \"query\": {\n    \"query_string\": {\n      \"query\": \"app_name:vip-dashboard\",\n      \"analyze_wildcard\": true\n    }\n  },\n  \"filter\": [\n    {\n      \"query\": {\n        \"query_string\": {\n          \"query\": \"*\",\n          \"analyze_wildcard\": true\n        }\n      },\n      \"meta\": {\n        \"index\": \"quality_log\",\n        \"key\": \"query\",\n        \"value\": \"*\",\n        \"disabled\": false,\n        \"negate\": false,\n        \"alias\": null\n      },\n      \"$state\": {\n        \"store\": \"appState\"\n      }\n    }\n  ]\n}"
+      }
+    }
+  }
+]

@@ -1,0 +1,102 @@
+{
+  "order": 0,
+  "template": "quality_day*",
+  "settings": {
+    "index": {
+      "refresh_interval": "30s",
+      "number_of_shards": "3",
+      "number_of_replicas": "0",
+      "query": {
+        "default_field": "query_field"
+      }
+    }
+  },
+  "mappings": {
+    "fluentd": {
+      "_all": {
+        "enabled": false
+      },
+      "properties": {
+        "status_code": {
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "method": {
+          "copy_to": "query_field",
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "query_entity": {
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "resp_length": {
+          "type": "long"
+        },
+        "query_field": {
+          "type": "string"
+        },
+        "business_code": {
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "url": {
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "req_length": {
+          "type": "long"
+        },
+        "app_name": {
+          "copy_to": "query_field",
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "client_port": {
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "log_type": {
+          "copy_to": "query_field",
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "request_time": {
+          "format": "yyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis",
+          "type": "date"
+        },
+        "elapsed_time": {
+          "type": "long"
+        },
+        "server_ip": {
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "call_method": {
+          "copy_to": "query_field",
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "client_ip": {
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "server_port": {
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "return content": {
+          "index": "no",
+          "type": "string"
+        },
+        "communication_type": {
+          "index": "not_analyzed",
+          "type": "string"
+        }
+      }
+    }
+  },
+  "aliases": {
+    "quality_log": {}
+  }
+}

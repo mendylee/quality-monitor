@@ -1,0 +1,160 @@
+{
+  "order": 1,
+  "template": "quality_nginx*",  
+  "mappings": {
+    "nginx": {
+      "_all": {
+        "enabled": false
+      },
+	  "dynamic_templates": [
+        {
+          "any_values": {
+            "match_mapping_type": "*",
+            "mapping": {
+              "type": "string",
+              "index": "not_analyzed"
+            }
+          }
+        }
+      ],
+      "properties": {
+		"timestamp": {
+		  "format": "yyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis",
+          "type": "date"
+        },
+        "duration": {
+          "type": "long"
+        },
+		"app_name": {
+          "copy_to": "query_field",
+          "index": "not_analyzed",
+          "type": "string"
+        },
+		"client_ip": {
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "server_ip": {
+          "index": "not_analyzed",
+          "type": "string"
+        },
+		"server_port":{
+		  "index": "not_analyzed",
+          "type": "string"
+		},
+        "status_code": {
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "method": {
+          "copy_to": "query_field",
+          "index": "not_analyzed",
+          "type": "string"
+        },
+		"req_length": {
+          "type": "long"
+        },
+        "resp_length": {	
+          "type": "long"
+        },
+		"path":{
+		  "index": "not_analyzed",
+          "type": "string"
+		},
+		"referer": {
+          "index": "not_analyzed",
+          "type": "string"
+        },
+		"url": {
+          "index": "not_analyzed",
+          "type": "string"
+        },
+		"query_entity": {
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "call_method": {
+          "copy_to": "query_field",
+          "index": "not_analyzed",
+          "type": "string"
+        },
+		"ua": {
+          "properties" : {
+			  "os": {
+			  "index": "not_analyzed",
+			  "type": "string"
+			},
+			"os_type": {
+			  "index": "not_analyzed",
+			  "type": "string"
+			},
+			"browser": {
+			  "index": "not_analyzed",
+			  "type": "string"
+			},
+			"browser_type": {
+			  "index": "not_analyzed",
+			  "type": "string"
+			},
+			"browser_version": {
+			  "index": "not_analyzed",
+			  "type": "string"
+			},
+			"manufacturer": {
+			  "index": "not_analyzed",
+			  "type": "string"
+			},
+			"render_engine": {
+			  "index": "not_analyzed",
+			  "type": "string"
+			}
+		  }
+        },		
+		"query_field": {
+          "type": "string"
+        },
+		"trace_id": {
+          "index": "not_analyzed",
+          "type": "string"
+        },
+		"trace_path": {
+          "index": "not_analyzed",
+          "type": "string"
+        },
+		"trace_depth":{
+		  "type": "short"
+		},
+		"trace_parent":{
+		  "index": "not_analyzed",
+          "type": "string"
+		},
+		"trace_query": {		  
+			"type": "nested",
+			"properties": {
+			  "app_name": {
+				"index": "not_analyzed",
+				"type": "string"
+			  },
+			  "server_ip": {
+				"index": "not_analyzed",
+				"type": "string"
+			  },
+			  "server_port": {
+				"type": "long"
+			  },
+			  "parent_app_name": {
+				"index": "not_analyzed",
+				"type": "string"
+			  }
+			}
+        },
+		"query_content": {
+          "type": "object"
+        }
+      }
+    }
+  },
+  "aliases": {
+    "quality_nginx_log": {}
+  }
+}

@@ -1,0 +1,165 @@
+[
+  {
+    "_id": "应用服务基本信息",
+    "_type": "dashboard",
+    "_source": {
+      "title": "应用服务基本信息",
+      "hits": 0,
+      "description": "",
+      "panelsJSON": "[{\"id\":\"应用请求响应时间占比表\",\"type\":\"visualization\",\"panelIndex\":1,\"size_x\":5,\"size_y\":4,\"col\":8,\"row\":1},{\"id\":\"超过200ms请求分段占比图\",\"type\":\"visualization\",\"panelIndex\":2,\"size_x\":7,\"size_y\":8,\"col\":1,\"row\":1},{\"id\":\"应用服务器负载\",\"type\":\"visualization\",\"panelIndex\":3,\"size_x\":5,\"size_y\":4,\"col\":8,\"row\":5}]",
+      "optionsJSON": "{\"darkTheme\":true}",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "timeRestore": false,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[{\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}}}]}"
+      }
+    }
+  },
+  {
+    "_id": "展业系统后台视图",
+    "_type": "dashboard",
+    "_source": {
+      "title": "展业系统后台视图",
+      "hits": 0,
+      "description": "",
+      "panelsJSON": "[{\"col\":1,\"id\":\"应用访问量统计\",\"panelIndex\":1,\"row\":1,\"size_x\":5,\"size_y\":3,\"type\":\"visualization\"},{\"col\":1,\"id\":\"应用请求时间\",\"panelIndex\":2,\"row\":4,\"size_x\":5,\"size_y\":4,\"type\":\"visualization\"},{\"col\":6,\"id\":\"应用返回状态码统计\",\"panelIndex\":3,\"row\":1,\"size_x\":3,\"size_y\":3,\"type\":\"visualization\"},{\"col\":6,\"id\":\"最慢响应请求TOP10\",\"panelIndex\":4,\"row\":8,\"size_x\":5,\"size_y\":5,\"type\":\"visualization\"},{\"col\":1,\"id\":\"响应时间范围统计\",\"panelIndex\":5,\"row\":8,\"size_x\":5,\"size_y\":5,\"type\":\"visualization\"},{\"col\":6,\"id\":\"超过200ms请求分段占比图\",\"panelIndex\":6,\"row\":4,\"size_x\":5,\"size_y\":4,\"type\":\"visualization\"},{\"id\":\"应用服务器负载\",\"type\":\"visualization\",\"panelIndex\":7,\"size_x\":3,\"size_y\":3,\"col\":9,\"row\":1}]",
+      "optionsJSON": "{\"darkTheme\":true}",
+      "uiStateJSON": "{\"P-1\":{\"spy\":{\"mode\":{\"fill\":false,\"name\":null}}},\"P-2\":{\"spy\":{\"mode\":{\"fill\":false,\"name\":null}}},\"P-5\":{\"spy\":{\"mode\":{\"fill\":false,\"name\":null}}}}",
+      "version": 1,
+      "timeRestore": true,
+      "timeTo": "now",
+      "timeFrom": "now-24h",
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[{\"query\":{\"query_string\":{\"query\":\"app_name:vip-dashboard OR app_name:core-data\",\"analyze_wildcard\":true}}}]}"
+      }
+    }
+  },
+  {
+    "_id": "通讯中心视图",
+    "_type": "dashboard",
+    "_source": {
+      "title": "通讯中心视图",
+      "hits": 0,
+      "description": "",
+      "panelsJSON": "[{\"col\":1,\"id\":\"应用访问量统计\",\"panelIndex\":1,\"row\":1,\"size_x\":5,\"size_y\":3,\"type\":\"visualization\"},{\"col\":1,\"id\":\"应用请求时间\",\"panelIndex\":2,\"row\":4,\"size_x\":5,\"size_y\":4,\"type\":\"visualization\"},{\"col\":6,\"id\":\"应用返回状态码统计\",\"panelIndex\":3,\"row\":1,\"size_x\":3,\"size_y\":3,\"type\":\"visualization\"},{\"col\":6,\"id\":\"最慢响应请求TOP10\",\"panelIndex\":4,\"row\":8,\"size_x\":5,\"size_y\":5,\"type\":\"visualization\"},{\"col\":1,\"id\":\"响应时间范围统计\",\"panelIndex\":5,\"row\":8,\"size_x\":5,\"size_y\":5,\"type\":\"visualization\"},{\"col\":6,\"id\":\"超过200ms请求分段占比图\",\"panelIndex\":6,\"row\":4,\"size_x\":5,\"size_y\":4,\"type\":\"visualization\"},{\"col\":9,\"id\":\"应用服务器负载\",\"panelIndex\":7,\"row\":1,\"size_x\":3,\"size_y\":3,\"type\":\"visualization\"}]",
+      "optionsJSON": "{\"darkTheme\":true}",
+      "uiStateJSON": "{\"P-1\":{\"spy\":{\"mode\":{\"fill\":false,\"name\":null}}},\"P-2\":{\"spy\":{\"mode\":{\"fill\":false,\"name\":null}}},\"P-5\":{\"spy\":{\"mode\":{\"fill\":false,\"name\":null}}}}",
+      "version": 1,
+      "timeRestore": true,
+      "timeTo": "now",
+      "timeFrom": "now-24h",
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[{\"query\":{\"query_string\":{\"query\":\"app_name:communication_center\",\"analyze_wildcard\":true}}}]}"
+      }
+    }
+  },
+  {
+    "_id": "帐号访问信息",
+    "_type": "dashboard",
+    "_source": {
+      "title": "帐号访问信息",
+      "hits": 0,
+      "description": "",
+      "panelsJSON": "[{\"col\":1,\"id\":\"应用访问量统计\",\"panelIndex\":1,\"row\":1,\"size_x\":5,\"size_y\":3,\"type\":\"visualization\"},{\"col\":1,\"id\":\"应用请求时间\",\"panelIndex\":2,\"row\":4,\"size_x\":5,\"size_y\":4,\"type\":\"visualization\"},{\"col\":6,\"id\":\"应用返回状态码统计\",\"panelIndex\":3,\"row\":1,\"size_x\":3,\"size_y\":3,\"type\":\"visualization\"},{\"col\":6,\"id\":\"最慢响应请求TOP10\",\"panelIndex\":4,\"row\":8,\"size_x\":6,\"size_y\":5,\"type\":\"visualization\"},{\"col\":1,\"id\":\"响应时间范围统计\",\"panelIndex\":5,\"row\":8,\"size_x\":5,\"size_y\":5,\"type\":\"visualization\"},{\"id\":\"超过200ms请求分段占比图\",\"type\":\"visualization\",\"panelIndex\":6,\"size_x\":6,\"size_y\":4,\"col\":6,\"row\":4},{\"id\":\"应用服务器负载\",\"type\":\"visualization\",\"panelIndex\":7,\"size_x\":3,\"size_y\":3,\"col\":9,\"row\":1},{\"id\":\"接口方法访问统计数据表\",\"type\":\"visualization\",\"panelIndex\":8,\"size_x\":11,\"size_y\":6,\"col\":1,\"row\":13}]",
+      "optionsJSON": "{\"darkTheme\":true}",
+      "uiStateJSON": "{\"P-1\":{\"spy\":{\"mode\":{\"fill\":false,\"name\":null}}},\"P-2\":{\"spy\":{\"mode\":{\"fill\":false,\"name\":null}}}}",
+      "version": 1,
+      "timeRestore": true,
+      "timeTo": "now",
+      "timeFrom": "now-24h",
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[{\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"app_name:uiac OR app_name:account-api\"}}}]}"
+      }
+    }
+  },
+  {
+    "_id": "分销系统监控视图",
+    "_type": "dashboard",
+    "_source": {
+      "title": "分销系统监控视图",
+      "hits": 0,
+      "description": "",
+      "panelsJSON": "[{\"col\":1,\"id\":\"应用访问量统计\",\"panelIndex\":1,\"row\":1,\"size_x\":5,\"size_y\":3,\"type\":\"visualization\"},{\"col\":1,\"id\":\"应用请求时间\",\"panelIndex\":2,\"row\":4,\"size_x\":5,\"size_y\":4,\"type\":\"visualization\"},{\"col\":6,\"id\":\"应用返回状态码统计\",\"panelIndex\":3,\"row\":1,\"size_x\":3,\"size_y\":3,\"type\":\"visualization\"},{\"col\":6,\"id\":\"最慢响应请求TOP10\",\"panelIndex\":4,\"row\":8,\"size_x\":5,\"size_y\":5,\"type\":\"visualization\"},{\"col\":1,\"id\":\"响应时间范围统计\",\"panelIndex\":5,\"row\":8,\"size_x\":5,\"size_y\":5,\"type\":\"visualization\"},{\"col\":6,\"id\":\"超过200ms请求分段占比图\",\"panelIndex\":6,\"row\":4,\"size_x\":5,\"size_y\":4,\"type\":\"visualization\"},{\"col\":9,\"id\":\"应用服务器负载\",\"panelIndex\":7,\"row\":1,\"size_x\":3,\"size_y\":3,\"type\":\"visualization\"}]",
+      "optionsJSON": "{\"darkTheme\":true}",
+      "uiStateJSON": "{\"P-1\":{\"spy\":{\"mode\":{\"fill\":false,\"name\":null}}},\"P-2\":{\"spy\":{\"mode\":{\"fill\":false,\"name\":null}}},\"P-5\":{\"spy\":{\"mode\":{\"fill\":false,\"name\":null}}}}",
+      "version": 1,
+      "timeRestore": true,
+      "timeTo": "now",
+      "timeFrom": "now-24h",
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[{\"query\":{\"query_string\":{\"query\":\"app_name:xrk-drp-web\",\"analyze_wildcard\":true}}}]}"
+      }
+    }
+  },
+  {
+    "_id": "core-data",
+    "_type": "dashboard",
+    "_source": {
+      "title": "core-data",
+      "hits": 0,
+      "description": "",
+      "panelsJSON": "[{\"col\":7,\"id\":\"最慢响应请求TOP10\",\"panelIndex\":4,\"row\":5,\"size_x\":6,\"size_y\":4,\"type\":\"visualization\"},{\"col\":1,\"id\":\"超过200ms请求分段占比图\",\"panelIndex\":5,\"row\":1,\"size_x\":6,\"size_y\":4,\"type\":\"visualization\"},{\"col\":7,\"id\":\"服务器应用访问量统计\",\"panelIndex\":6,\"row\":1,\"size_x\":6,\"size_y\":4,\"type\":\"visualization\"},{\"col\":1,\"id\":\"应用请求时间\",\"panelIndex\":7,\"row\":5,\"size_x\":6,\"size_y\":4,\"type\":\"visualization\"}]",
+      "optionsJSON": "{\"darkTheme\":true}",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "timeRestore": false,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[{\"$state\":{\"store\":\"appState\"},\"meta\":{\"alias\":null,\"disabled\":false,\"index\":\"quality_log\",\"key\":\"app_name\",\"negate\":false,\"value\":\"core-data\"},\"query\":{\"match\":{\"app_name\":{\"query\":\"core-data\",\"type\":\"phrase\"}}}},{\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}}}]}"
+      }
+    }
+  },
+  {
+    "_id": "服务器信息",
+    "_type": "dashboard",
+    "_source": {
+      "title": "服务器信息",
+      "hits": 0,
+      "description": "",
+      "panelsJSON": "[{\"col\":6,\"id\":\"服务器应用下行流量统计\",\"panelIndex\":1,\"row\":4,\"size_x\":6,\"size_y\":7,\"type\":\"visualization\"},{\"id\":\"服务器应用访问量统计\",\"type\":\"visualization\",\"panelIndex\":2,\"size_x\":5,\"size_y\":7,\"col\":1,\"row\":4},{\"id\":\"服务器访问量对比曲线\",\"type\":\"visualization\",\"panelIndex\":3,\"size_x\":4,\"size_y\":3,\"col\":1,\"row\":1},{\"id\":\"服务器下行流量对比曲线\",\"type\":\"visualization\",\"panelIndex\":4,\"size_x\":4,\"size_y\":3,\"col\":5,\"row\":1},{\"id\":\"服务器上行流量对比曲线\",\"type\":\"visualization\",\"panelIndex\":5,\"size_x\":4,\"size_y\":3,\"col\":9,\"row\":1}]",
+      "optionsJSON": "{\"darkTheme\":true}",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "timeRestore": false,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[{\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}}}]}"
+      }
+    }
+  },
+  {
+    "_id": "应用HTTP请求方法及返回状态视图",
+    "_type": "dashboard",
+    "_source": {
+      "title": "应用HTTP请求方法及返回状态视图",
+      "hits": 0,
+      "description": "",
+      "panelsJSON": "[{\"id\":\"HTTP请求方法分类统计\",\"type\":\"visualization\",\"panelIndex\":1,\"size_x\":8,\"size_y\":8,\"col\":1,\"row\":1},{\"id\":\"应用返回状态码统计\",\"type\":\"visualization\",\"panelIndex\":2,\"size_x\":4,\"size_y\":8,\"col\":9,\"row\":1}]",
+      "optionsJSON": "{\"darkTheme\":true}",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "timeRestore": false,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[{\"query\":{\"query_string\":{\"query\":\"NOT app_name:core-data\",\"analyze_wildcard\":true}}}]}"
+      }
+    }
+  },
+  {
+    "_id": "用户成长体系数据",
+    "_type": "dashboard",
+    "_source": {
+      "title": "用户成长体系数据",
+      "hits": 0,
+      "description": "",
+      "panelsJSON": "[{\"col\":1,\"id\":\"应用访问量统计\",\"panelIndex\":1,\"row\":1,\"size_x\":5,\"size_y\":3,\"type\":\"visualization\"},{\"col\":1,\"id\":\"应用请求时间\",\"panelIndex\":2,\"row\":4,\"size_x\":5,\"size_y\":4,\"type\":\"visualization\"},{\"col\":6,\"id\":\"应用返回状态码统计\",\"panelIndex\":3,\"row\":1,\"size_x\":5,\"size_y\":3,\"type\":\"visualization\"},{\"col\":6,\"id\":\"最慢响应请求TOP10\",\"panelIndex\":4,\"row\":8,\"size_x\":5,\"size_y\":5,\"type\":\"visualization\"},{\"col\":1,\"id\":\"响应时间范围统计\",\"panelIndex\":5,\"row\":8,\"size_x\":5,\"size_y\":5,\"type\":\"visualization\"},{\"col\":6,\"id\":\"超过200ms请求分段占比图\",\"panelIndex\":6,\"row\":4,\"size_x\":5,\"size_y\":4,\"type\":\"visualization\"},{\"col\":1,\"id\":\"接口方法访问统计数据表\",\"panelIndex\":7,\"row\":13,\"size_x\":10,\"size_y\":4,\"type\":\"visualization\"}]",
+      "optionsJSON": "{\"darkTheme\":true}",
+      "uiStateJSON": "{\"P-1\":{\"spy\":{\"mode\":{\"fill\":false,\"name\":null}}},\"P-2\":{\"spy\":{\"mode\":{\"fill\":false,\"name\":null}}},\"P-5\":{\"spy\":{\"mode\":{\"fill\":false,\"name\":null}}}}",
+      "version": 1,
+      "timeRestore": true,
+      "timeTo": "now",
+      "timeFrom": "now-24h",
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[{\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"app_name:ugs\"}}}]}"
+      }
+    }
+  }
+]

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration debug="true">
+    <appender name="FILE" class="org.apache.log4j.RollingFileAppender">
+        <param name="file" value="logs/quality_es_kafka_rolling.log"/>
+        <param name="MaxFileSize" value="10MB"/>
+        <param name="MaxBackupIndex" value="1000"/>
+        <param name="append" value="true"/>
+        <param name="encoding" value="UTF-8"/>
+        <!-- Compress(gzip) the backup files-->
+        <param name="CompressBackupFiles" value="true"/>
+        <!-- Compress the backup files using a second thread -->
+        <param name="CompressAsync" value="true"/>
+        <!-- Backup Location -->
+        <param name="backupFilesToPath" value="/logs/backup"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d [%p][%t][%c] - %m%n"/>
+        </layout>
+    </appender>
+    <appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern"
+                   value="%d [%p] [%C{1}] - %m%n"/>
+        </layout>
+
+        <!--限制输出级别-->
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="LevelMax" value="ERROR"/>
+            <param name="LevelMin" value="INFO"/>
+        </filter>
+    </appender>
+    <appender name="userPointQueueFailed" class="org.apache.log4j.RollingFileAppender">
+        <param name="file" value="logs/user_point_queue_fail.log"/>
+        <param name="MaxFileSize" value="10MB"/>
+        <param name="MaxBackupIndex" value="100"/>
+        <param name="append" value="true"/>
+        <param name="encoding" value="UTF-8"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{ISO8601} [%p] [%t] - %m%n"/>
+        </layout>
+    </appender>
+    <appender name="metricsStat" class="org.apache.log4j.RollingFileAppender">
+        <param name="file" value="metrics/metricsStat.log"/>
+        <param name="MaxFileSize" value="10MB"/>
+        <param name="MaxBackupIndex" value="100"/>
+        <param name="append" value="true"/>
+        <param name="encoding" value="UTF-8"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{ISO8601} - %m%n"/>
+        </layout>
+    </appender>
+    <logger name="userPointQueueFailed" additivity="false">
+        <level value="debug"/>
+        <appender-ref ref="userPointQueueFailed"/>
+    </logger>
+    <logger name="metricsStat" additivity="false">
+        <level value="debug"/>
+        <appender-ref ref="metricsStat"/>
+    </logger>
+    <logger name="org.hibernate">
+        <level value="warn"/>
+    </logger>
+    <logger name="org.apache.http">
+        <level value="warn"/>
+    </logger>
+    <logger name="org.apache.kafka">
+        <level value="warn"/>
+    </logger>
+    <root>
+        <priority value="debug"/>
+        <appender-ref ref="FILE"/>
+        <appender-ref ref="CONSOLE"/>
+    </root>
+</log4j:configuration>

@@ -1,0 +1,27 @@
+### Kafka properties ####################################
+# Kafka Brokers host:port list: <host1>:<port1>,...,<hostN>:<portN>
+kafkaBrokersList=192.168.30.65:9092,192.168.30.66:9092,192.168.30.67:9092
+consumerGroupName=kafka_quality_indexer
+consumerThreadNum=1
+consumerPullWaitTime=1000
+enableAutoCommit=true
+topic=quality_msg,quality_nginx,quality_db
+appStopTimeoutSeconds=10
+numberOfReinitTries=2
+kafkaReinitSleepTimeMs=10000
+
+### ElasticSearch properties ####################################
+esHostPortList=192.168.30.65:9300,192.168.30.66:9300,192.168.30.67:9300
+esClusterName=quality_log_new
+esIndex=quality_day-
+esIndexDynamicName=yyyyMMdd
+esIndexType=fluentd
+esBulkSize=1000
+messageHandlerClass=com.xrk.quality.es.plugin.MessageHandler
+messageHandlerQueueNum=10000
+#indexHandlerClass=com.xrk.quality.es.plugin.messageHandlers.DBIndexHandler,com.xrk.quality.es.plugin.messageHandlers.QualityErrorIndexHandler,com.xrk.quality.es.plugin.messageHandlers.NginxIndexHandler,com.xrk.quality.es.plugin.messageHandlers.QualityIndexHandler
+indexHandlerClass=com.xrk.quality.es.plugin.messageHandlers.QualityIndexHandler
+messageEncoding=UTF-8
+consumerSleepTime=500
+numberOfEsIndexingRetryAttempts=2
+esIndexingRetrySleepTimeMs=10000

@@ -1,0 +1,18 @@
+{
+  "order": 0,
+  "template": "*",
+  "settings": {
+    "index": {
+      "refresh_interval": "30s",
+      "number_of_shards": "3",
+      "number_of_replicas": "0",
+	  "translog" :{
+		"sync_interval" : "30s",
+		"durability": "async"
+	  },
+      "query": {
+        "default_field": "query_field"
+      }
+    }
+  }
+}
